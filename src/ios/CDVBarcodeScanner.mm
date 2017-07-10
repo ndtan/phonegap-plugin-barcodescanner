@@ -349,6 +349,9 @@ parentViewController:(UIViewController*)parentViewController
     self.viewController = [[[CDVbcsViewController alloc] initWithProcessor: self alternateOverlay:self.alternateXib] autorelease];
     // here we set the orientation delegate to the MainViewController of the app (orientation controlled in the Project Settings)
     self.viewController.orientationDelegate = self.plugin.viewController;
+    
+    // TanND: fix error "Black screen after scaning barcode"
+    self.viewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
 
     // delayed [self openDialog];
     [self performSelector:@selector(openDialog) withObject:nil afterDelay:1];
